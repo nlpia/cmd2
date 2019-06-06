@@ -3059,10 +3059,13 @@ class Cmd(cmd.Cmd):
         # still receive the SIGINT since it is in the same process group as us.
         with self.sigint_protection:
             # For any stream that is a StdSim, we will use a pipe so we can capture its output
+            # aliases from .bashrc don't get set so `ll` won't work.
+            # Need to set bash aliases manually as cmd2 shortcuts by reading the output of Popen('/bin/bash -c -i alias'.split())
             proc = subprocess.Popen(expanded_command,
                                     stdout=subprocess.PIPE if isinstance(self.stdout, utils.StdSim) else self.stdout,
                                     stderr=subprocess.PIPE if isinstance(sys.stderr, utils.StdSim) else sys.stderr,
-                                    shell=True)
+                                    shell=True,
+                                    )
 
             proc_reader = utils.ProcReader(proc, self.stdout, sys.stderr)
             proc_reader.wait()

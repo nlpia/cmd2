@@ -66,7 +66,7 @@ setattr(sport2_arg, 'arg_choices', sport_item_strs)
 
 class SubcommandsExample(cmd2.Cmd):
     """
-    Example cmd2 application where we a base command which has a couple sub-commands
+    Example cmd2 application with a base command which has a couple sub-commands
     and the "sport" sub-command has tab completion enabled.
     """
     def __init__(self):

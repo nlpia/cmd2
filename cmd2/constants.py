@@ -1,8 +1,10 @@
 #
 # coding=utf-8
 """Constants and definitions"""
-
 import re
+import os
+
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # Used for command parsing, output redirection, tab completion and word
 # breaks. Do not change.

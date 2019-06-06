@@ -22,6 +22,10 @@ from colorama import Fore
 import cmd2
 
 
+CYAN, RESET = Fore.CYAN, Fore.RESET
+print(repr(CYAN), repr(RESET))
+
+
 class CmdLineApp(cmd2.Cmd):
     """ Example cmd2 application to showcase conditional control flow in Python scripting within cmd2 aps. """
 
@@ -35,7 +39,7 @@ class CmdLineApp(cmd2.Cmd):
     def _set_prompt(self):
         """Set prompt so it displays the current working directory."""
         self.cwd = os.getcwd()
-        self.prompt = Fore.CYAN + '{!r} $ '.format(self.cwd) + Fore.RESET
+        self.prompt = f'{CYAN}{self.cwd} $ {RESET}'
 
     def postcmd(self, stop: bool, line: str) -> bool:
         """Hook method executed just after a command dispatch is finished.
@@ -51,7 +55,7 @@ class CmdLineApp(cmd2.Cmd):
     @cmd2.with_argument_list
     def do_cd(self, arglist):
         """Change directory.
-    Usage:
+        Usage:
         cd <new_dir>
         """
         # Expect 1 argument, the directory to change to
