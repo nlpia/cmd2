@@ -1,3 +1,11 @@
+# Shell Assistant
+
+```bash
+python examples/shell_assistant.py
+```
+
+# Original cmd2 README:
+
 cmd2: a tool for building interactive command line apps
 =======================================================
 [![Latest Version](https://img.shields.io/pypi/v/cmd2.svg?style=flat-square&label=latest%20stable%20version)](https://pypi.python.org/pypi/cmd2/)
